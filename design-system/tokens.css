@@ -1,0 +1,338 @@
+/* ==========================================================================
+   MIZAN (میزان) DESIGN SYSTEM TOKENS
+   Direction 2: Luxe Biophilic Sanctuary & Private Wellness
+   Engineered for LTR (English) & RTL (Urdu) with Logical Properties
+   ========================================================================== */
+
+:root {
+  /* --- Brand & Palette (Dark Theme Default: Forest Obsidian & Mughal Brass) --- */
+  --color-bg-base: #0B110E;
+  --color-bg-surface: #131C17;
+  --color-bg-surface-elevated: #1A2620;
+  --color-bg-surface-glass: rgba(19, 28, 23, 0.78);
+  --color-bg-overlay: rgba(5, 8, 7, 0.85);
+
+  --color-accent-primary: #C5A059;         /* Mughal Burnished Brass / Antique Gold */
+  --color-accent-primary-hover: #D8B46E;
+  --color-accent-primary-muted: rgba(197, 160, 89, 0.18);
+  --color-accent-primary-glow: rgba(197, 160, 89, 0.32);
+
+  --color-accent-secondary: #2D5A46;       /* Oasis Jade / Biophilic Green */
+  --color-accent-secondary-hover: #366B53;
+  --color-accent-secondary-muted: rgba(45, 90, 70, 0.25);
+
+  --color-whatsapp: #25D366;               /* WhatsApp Official Accent */
+  --color-whatsapp-hover: #22BF5B;
+  --color-whatsapp-muted: rgba(37, 211, 102, 0.18);
+
+  --color-text-primary: #FAF7F2;           /* Warm Ivory Silk */
+  --color-text-secondary: #C3CCC6;         /* Soft Eucalyptus Leaf */
+  --color-text-muted: #8F9E96;             /* Silver Willow Leaf */
+  --color-text-inverse: #0B110E;
+
+  --color-border-subtle: #1E2B23;          /* Fine Patina Hairline */
+  --color-border-medium: #2B3D32;
+  --color-border-gold: rgba(197, 160, 89, 0.4);
+
+  --color-badge-women-bg: rgba(224, 159, 178, 0.15);
+  --color-badge-women-text: #F3B5C6;
+  --color-badge-women-border: rgba(224, 159, 178, 0.35);
+
+  --color-badge-power-bg: rgba(245, 158, 11, 0.15);
+  --color-badge-power-text: #FBBF24;
+  --color-badge-power-border: rgba(245, 158, 11, 0.35);
+
+  --color-badge-active-bg: rgba(45, 90, 70, 0.25);
+  --color-badge-active-text: #6EE7B7;
+  --color-badge-active-border: rgba(110, 231, 183, 0.35);
+
+  /* --- Typography Families --- */
+  --font-latin-display: 'Cinzel Decorative', 'Playfair Display', Georgia, serif;
+  --font-latin-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  
+  --font-urdu-display: 'Gulzar', 'Noto Nastaliq Urdu', serif;
+  --font-urdu-body: 'Noto Naskh Arabic', 'Plus Jakarta Sans', system-ui, sans-serif;
+
+  /* --- Dynamic Line Heights (Nastaliq requires 2.2x to prevent diacritic clipping) --- */
+  --line-height-display: 1.15;
+  --line-height-body: 1.6;
+  --line-height-urdu-display: 2.3;
+  --line-height-urdu-body: 1.95;
+
+  /* --- Spacing Scale --- */
+  --space-2xs: 0.25rem;  /* 4px */
+  --space-xs: 0.5rem;    /* 8px */
+  --space-sm: 0.75rem;   /* 12px */
+  --space-md: 1rem;      /* 16px */
+  --space-lg: 1.5rem;    /* 24px */
+  --space-xl: 2rem;      /* 32px */
+  --space-2xl: 3rem;     /* 48px */
+  --space-3xl: 4.5rem;   /* 72px */
+  --space-4xl: 6rem;     /* 96px */
+
+  /* --- Radii --- */
+  --radius-xs: 0.25rem;  /* 4px */
+  --radius-sm: 0.5rem;   /* 8px */
+  --radius-md: 0.875rem; /* 14px */
+  --radius-lg: 1.25rem;  /* 20px */
+  --radius-xl: 2rem;     /* 32px */
+  --radius-full: 9999px;
+
+  /* --- Shadows & Glows --- */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.6);
+  --shadow-gold: 0 0 25px rgba(197, 160, 89, 0.22);
+  --shadow-jade: 0 0 25px rgba(45, 90, 70, 0.25);
+
+  /* --- Transitions & Motion --- */
+  --ease-mizan: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
+  --duration-fast: 180ms;
+  --duration-normal: 320ms;
+  --duration-slow: 600ms;
+
+  /* --- Interactive Dimensions --- */
+  --min-tap-target: 44px;
+}
+
+/* ==========================================================================
+   Light Theme Override (Clean Alabaster, Warm Linen, Travertine & Cypress)
+   ========================================================================== */
+[data-theme="light"],
+body.light-theme {
+  --color-bg-base: #F7F5F0;
+  --color-bg-surface: #FFFFFF;
+  --color-bg-surface-elevated: #EDEAE1;
+  --color-bg-surface-glass: rgba(255, 255, 255, 0.88);
+  --color-bg-overlay: rgba(20, 31, 26, 0.5);
+
+  --color-accent-primary: #9C7B38;         /* Antique Satin Bronze */
+  --color-accent-primary-hover: #83672D;
+  --color-accent-primary-muted: rgba(156, 123, 56, 0.14);
+  --color-accent-primary-glow: rgba(156, 123, 56, 0.2);
+
+  --color-accent-secondary: #244C3A;
+  --color-accent-secondary-hover: #1D3D2F;
+  --color-accent-secondary-muted: rgba(36, 76, 58, 0.12);
+
+  --color-whatsapp: #1EBE5D;
+  --color-whatsapp-hover: #179E4C;
+  --color-whatsapp-muted: rgba(30, 190, 93, 0.14);
+
+  --color-text-primary: #141F1A;           /* Deep Cypress Charcoal */
+  --color-text-secondary: #3D4F46;
+  --color-text-muted: #5F6E66;
+  --color-text-inverse: #FAF7F2;
+
+  --color-border-subtle: #DCD8CD;
+  --color-border-medium: #C8C2B3;
+  --color-border-gold: rgba(156, 123, 56, 0.35);
+
+  --shadow-sm: 0 2px 8px rgba(20, 31, 26, 0.06);
+  --shadow-md: 0 8px 24px rgba(20, 31, 26, 0.08);
+  --shadow-lg: 0 16px 40px rgba(20, 31, 26, 0.12);
+  --shadow-gold: 0 0 20px rgba(156, 123, 56, 0.15);
+}
+
+/* ==========================================================================
+   RTL & Urdu Typography Dynamics
+   ========================================================================== */
+html[dir="rtl"],
+body[dir="rtl"],
+.lang-urdu {
+  font-family: var(--font-urdu-body);
+  line-height: var(--line-height-urdu-body);
+}
+
+html[dir="rtl"] h1,
+html[dir="rtl"] h2,
+html[dir="rtl"] h3,
+html[dir="rtl"] .urdu-title {
+  font-family: var(--font-urdu-display);
+  line-height: var(--line-height-urdu-display);
+  letter-spacing: normal;
+}
+
+/* Ensure Nastaliq text has breathing room to avoid ascender/descender clipping */
+html[dir="rtl"] .nastaliq-container {
+  padding-block: 0.5rem;
+}
+
+/* ==========================================================================
+   Base Global Element Rules & Utility Classes
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary);
+  font-family: var(--font-latin-body);
+  line-height: var(--line-height-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color var(--duration-normal) var(--ease-mizan),
+              color var(--duration-normal) var(--ease-mizan);
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==========================================================================
+   Signature Elements & Reusable Tokens
+   ========================================================================== */
+
+/* Islamic Lattice / Jali Border Pattern Accent */
+.mizan-lattice-border {
+  border: 1px solid var(--color-border-gold);
+  position: relative;
+}
+.mizan-lattice-border::after {
+  content: '';
+  position: absolute;
+  inset-inline-end: 8px;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-accent-primary);
+  border-radius: 50%;
+  opacity: 0.8;
+}
+
+/* Elegant Section Divider */
+.mizan-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-block: var(--space-xl);
+  color: var(--color-accent-primary);
+  gap: var(--space-md);
+}
+.mizan-divider::before,
+.mizan-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-border-gold), transparent);
+}
+
+/* Button Foundation with Large Tap Targets */
+.btn-mizan {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  min-height: var(--min-tap-target);
+  padding-inline: 1.5rem;
+  padding-block: 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-mizan);
+  border: 1px solid transparent;
+}
+
+.btn-mizan:focus-visible {
+  outline: 2px solid var(--color-accent-primary);
+  outline-offset: 3px;
+}
+
+.btn-primary {
+  background-color: var(--color-accent-primary);
+  color: #0B110E;
+  font-weight: 700;
+  box-shadow: var(--shadow-gold);
+}
+.btn-primary:hover {
+  background-color: var(--color-accent-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(197, 160, 89, 0.4);
+}
+
+.btn-secondary {
+  background-color: var(--color-bg-surface-elevated);
+  color: var(--color-text-primary);
+  border-color: var(--color-border-medium);
+}
+.btn-secondary:hover {
+  border-color: var(--color-accent-primary);
+  background-color: var(--color-accent-primary-muted);
+}
+
+.btn-ghost {
+  background-color: transparent;
+  color: var(--color-accent-primary);
+  border-color: var(--color-border-gold);
+}
+.btn-ghost:hover {
+  background-color: var(--color-accent-primary-muted);
+}
+
+.btn-whatsapp {
+  background-color: var(--color-whatsapp);
+  color: #05140B;
+  font-weight: 700;
+}
+.btn-whatsapp:hover {
+  background-color: var(--color-whatsapp-hover);
+  box-shadow: 0 0 25px rgba(37, 211, 102, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Badges */
+.badge-mizan {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding-inline: 0.75rem;
+  padding-block: 0.25rem;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+.badge-women {
+  background-color: var(--color-badge-women-bg);
+  color: var(--color-badge-women-text);
+  border: 1px solid var(--color-badge-women-border);
+}
+.badge-power {
+  background-color: var(--color-badge-power-bg);
+  color: var(--color-badge-power-text);
+  border: 1px solid var(--color-badge-power-border);
+}
+.badge-active {
+  background-color: var(--color-badge-active-bg);
+  color: var(--color-badge-active-text);
+  border: 1px solid var(--color-badge-active-border);
+}
+
+/* Cards */
+.card-mizan {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-md);
+  transition: transform var(--duration-normal) var(--ease-mizan),
+              border-color var(--duration-normal) var(--ease-mizan),
+              box-shadow var(--duration-normal) var(--ease-mizan);
+}
+.card-mizan:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-border-gold);
+  box-shadow: var(--shadow-lg), var(--shadow-gold);
+}

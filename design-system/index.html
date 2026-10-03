@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mizan Design System — Luxe Biophilic Sanctuary & Private Wellness</title>
+  <!-- Google Fonts: Playfair Display, Plus Jakarta Sans, Noto Nastaliq Urdu, Noto Naskh Arabic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;600;700&family=Noto+Nastaliq+Urdu:wght@500;700&family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./tokens.css">
+  <style>
+    /* Style Guide Specific Shell */
+    .sg-container {
+      max-width: 1280px;
+      margin-inline: auto;
+      padding-inline: 1.5rem;
+      padding-block: 2.5rem;
+    }
+    .sg-header {
+      border-bottom: 1px solid var(--color-border-subtle);
+      padding-bottom: 2rem;
+      margin-bottom: 3rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .sg-controls {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+    }
+    .sg-section {
+      margin-bottom: 4rem;
+    }
+    .sg-section-title {
+      font-family: var(--font-latin-display);
+      font-size: 1.75rem;
+      color: var(--color-accent-primary);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .sg-section-desc {
+      color: var(--color-text-muted);
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+    .sg-grid-colors {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.25rem;
+    }
+    .sg-swatch {
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background-color: var(--color-bg-surface);
+    }
+    .sg-swatch-box {
+      height: 90px;
+      width: 100%;
+    }
+    .sg-swatch-info {
+      padding: 0.75rem 1rem;
+    }
+    .sg-swatch-name {
+      font-weight: 600;
+      font-size: 0.85rem;
+      margin-bottom: 0.25rem;
+    }
+    .sg-swatch-hex {
+      font-family: monospace;
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+    }
+    .sg-component-box {
+      background-color: var(--color-bg-surface);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+    .form-label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+      color: var(--color-text-secondary);
+    }
+    .form-input, .form-select {
+      width: 100%;
+      min-height: var(--min-tap-target);
+      background-color: var(--color-bg-surface-elevated);
+      border: 1px solid var(--color-border-medium);
+      color: var(--color-text-primary);
+      padding-inline: 1rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color var(--duration-fast);
+    }
+    .form-input:focus, .form-select:focus {
+      border-color: var(--color-accent-primary);
+      box-shadow: 0 0 0 3px var(--color-accent-primary-muted);
+    }
+    /* Demo Navigation Bar */
+    .demo-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
+      background-color: var(--color-bg-surface-glass);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-lg);
+    }
+    .demo-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--font-latin-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--color-accent-primary);
+      text-decoration: none;
+    }
+    .demo-logo-glyph {
+      width: 32px;
+      height: 32px;
+      border: 1px solid var(--color-accent-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      background: linear-gradient(135deg, rgba(197,160,89,0.2), transparent);
+    }
+    .demo-nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .demo-nav-links a {
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color var(--duration-fast);
+    }
+    .demo-nav-links a:hover {
+      color: var(--color-accent-primary);
+    }
+    /* Demo Footer */
+    .demo-footer {
+      background-color: var(--color-bg-surface);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 2rem;
+    }
+    @media (max-width: 768px) {
+      .demo-footer {
+        grid-template-columns: 1fr;
+      }
+      .demo-nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sg-container">
+    <!-- Header with Live Controls -->
+    <header class="sg-header">
+      <div>
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+          <span class="badge-mizan badge-power">Stage 2 Deliverable</span>
+          <span class="badge-mizan badge-women">Women-First Privacy</span>
+        </div>
+        <h1 style="font-family: var(--font-latin-display); font-size: 2.5rem; margin: 0; color: var(--color-text-primary);">
+          MIZAN <span style="color: var(--color-accent-primary); font-family: var(--font-urdu-display); font-size: 2rem;">میزان</span>
+        </h1>
+        <p style="margin: 0.5rem 0 0; color: var(--color-text-secondary); max-width: 600px;">
+          Luxe Biophilic Sanctuary & Private Wellness Collective — Complete Design System & Component Library for Lahore, Karachi, and Islamabad branches.
+        </p>
+      </div>
+
+      <div class="sg-controls">
+        <button id="themeToggle" class="btn-mizan btn-secondary" onclick="toggleTheme()">
+          🌓 Toggle Light / Dark
+        </button>
+        <button id="dirToggle" class="btn-mizan btn-ghost" onclick="toggleDirection()">
+          🌐 Switch to Urdu (RTL)
+        </button>
+      </div>
+    </header>
+
+    <!-- SECTION 1: COLOR PALETTE -->
+    <section class="sg-section">
+      <h2 class="sg-section-title">01. Color Palette Tokens</h2>
+      <p class="sg-section-desc">Harmonious biophilic palette tailored for Pakistani luxury spaces, eliminating generic blue/purple templates.</p>
+      <div class="sg-grid-colors">
+        <div class="sg-swatch">
+          <div class="sg-swatch-box" style="background: var(--color-bg-base);"></div>
+          <div class="sg-swatch-info">
+            <div class="sg-swatch-name">Base Canvas</div>
+            <div class="sg-swatch-hex">Forest Obsidian #0B110E</div>
+          </div>
+        </div>
+        <div class="sg-swatch">
+          <div class="sg-swatch-box" style="background: var(--color-bg-surface);"></div>
+          <div class="sg-swatch-info">
+            <div class="sg-swatch-name">Surface Card</div>
+            <div class="sg-swatch-hex">Eucalyptus Slate #131C17</div>
+          </div>
+        </div>
+        <div class="sg-swatch">
+          <div class="sg-swatch-box" style="background: var(--color-accent-primary);"></div>
+          <div class="sg-swatch-info">
+            <div class="sg-swatch-name">Primary Accent</div>
+            <div class="sg-swatch-hex">Mughal Burnished Brass #C5A059</div>
+          </div>
+        </div>
+        <div class="sg-swatch">
+          <div class="sg-swatch-box" style="background: var(--color-accent-secondary);"></div>
+          <div class="sg-swatch-info">
+            <div class="sg-swatch-name">Secondary Accent</div>
+            <div class="sg-swatch-hex">Oasis Jade #2D5A46</div>
+          </div>
+        </div>
+        <div class="sg-swatch">
+          <div class="sg-swatch-box" style="background: var(--color-whatsapp);"></div>
+          <div class="sg-swatch-info">
+            <div class="sg-swatch-name">WhatsApp Direct</div>
+            <div class="sg-swatch-hex">High-Conversion #25D366</div>
+          </div>
+        </div>
+        <div class="sg-swatch">
+          <div class="sg-swatch-box" style="background: var(--color-text-primary);"></div>
+          <div class="sg-swatch-info">
+            <div class="sg-swatch-name">Text Primary</div>
+            <div class="sg-swatch-hex">Warm Ivory Silk #FAF7F2</div>
+          </div>
+        </div>
+        <div class="sg-swatch">
+          <div class="sg-swatch-box" style="background: var(--color-border-subtle);"></div>
+          <div class="sg-swatch-info">
+            <div class="sg-swatch-name">Structural Hairline</div>
+            <div class="sg-swatch-hex">Patina Seam #1E2B23</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: TYPOGRAPHY SPECIMENS (Bilingual: Latin + Urdu) -->
+    <section class="sg-section">
+      <h2 class="sg-section-title">02. Bilingual Typography Specimens</h2>
+      <p class="sg-section-desc">Latin Display (Playfair) + Modern Grotesk (Plus Jakarta Sans) paired with Royal Nastaliq & Naskh with 2.2x vertical line clearance.</p>
+
+      <div class="sg-component-box">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem;">
+          <!-- English Specimen -->
+          <div>
+            <span class="badge-mizan badge-active" style="margin-bottom: 1rem;">Latin Specimen (LTR)</span>
+            <h1 style="font-family: var(--font-latin-display); font-size: 2.25rem; margin: 0 0 0.5rem; line-height: 1.2;">
+              The Body in Perfect Harmony.
+            </h1>
+            <p style="font-size: 1.1rem; color: var(--color-text-secondary); margin-bottom: 1.5rem;">
+              Dedicated women’s sanctuaries, Olympic-standard strength suites, and cold-plunge recovery across Lahore, Karachi, and Islamabad.
+            </p>
+            <div style="font-size: 0.85rem; color: var(--color-text-muted); font-family: monospace;">
+              Display: Playfair Display / Cinzel | Body: Plus Jakarta Sans (400/500/600)
+            </div>
+          </div>
+
+          <!-- Urdu Specimen -->
+          <div dir="rtl">
+            <span class="badge-mizan badge-women" style="margin-bottom: 1rem;">اردو نمونہ (RTL)</span>
+            <div class="nastaliq-container">
+              <h1 style="font-family: var(--font-urdu-display); font-size: 2.25rem; margin: 0 0 0.5rem; color: var(--color-accent-primary);">
+                جسم اور روح کا مکمل توازن۔
+              </h1>
+            </div>
+            <p style="font-family: var(--font-urdu-body); font-size: 1.15rem; color: var(--color-text-secondary); margin-bottom: 1.5rem;">
+              خواتین کے لیے مکمل محفوظ اور نجی فلورز، جدید ترین اسٹرینتھ ایکوپمنٹ، اور باقاعدہ باجماعت نماز و دعائیہ وقفوں کے ساتھ۔
+            </p>
+            <div style="font-size: 0.85rem; color: var(--color-text-muted); font-family: monospace;">
+              ہیڈ لائن: Noto Nastaliq Urdu (2.3x Line Height) | متن: Noto Naskh Arabic
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: BUTTONS & CTAS -->
+    <section class="sg-section">
+      <h2 class="sg-section-title">03. Buttons & Interactive Targets (Min 44px)</h2>
+      <p class="sg-section-desc">Generous tap targets ensuring effortless one-hand interaction on 4G mobile devices in traffic or walking.</p>
+      <div class="sg-component-box">
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;">
+          <a href="#" class="btn-mizan btn-primary">
+            <span>Book Free Day Trial</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#" class="btn-mizan btn-secondary">
+            <span>Explore Virtual Tour</span>
+          </a>
+          <a href="#" class="btn-mizan btn-ghost">
+            <span>View Pricing Plans</span>
+          </a>
+          <a href="https://wa.me/923000000000" class="btn-mizan btn-whatsapp">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+            <span>WhatsApp Quick Desk (5m reply)</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: BADGES & TRUST REASSURANCES -->
+    <section class="sg-section">
+      <h2 class="sg-section-title">04. Reassurance & Amenity Badges</h2>
+      <p class="sg-section-desc">Directly addressing local anxieties: female privacy, unannounced power load shedding, and 24/7 access.</p>
+      <div class="sg-component-box">
+        <div style="display: flex; flex-wrap: wrap; gap: 0.85rem; align-items: center;">
+          <span class="badge-mizan badge-women">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            100% Dedicated Women's Wing & Staff
+          </span>
+          <span class="badge-mizan badge-power">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            100% Industrial Generator Backup (Zero Blackouts)
+          </span>
+          <span class="badge-mizan badge-active">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            24/7 Biometric Access
+          </span>
+          <span class="badge-mizan badge-active">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg>
+            Reverse-Osmosis Filtered Water Station
+          </span>
+          <span class="badge-mizan badge-power">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M3 12h18"/></svg>
+            Prayer Hall & Dedicated Wudu Facilities
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: FORM FIELDS -->
+    <section class="sg-section">
+      <h2 class="sg-section-title">05. Form Inputs & Select Controls</h2>
+      <p class="sg-section-desc">High-contrast, mobile-friendly forms with localized inputs for Pakistani phone numbers (+92) and city pickers.</p>
+      <div class="sg-component-box" style="max-width: 600px;">
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <input type="text" class="form-input" placeholder="e.g. Zainab Tariq / Ali Raza">
+        </div>
+        <div class="form-group">
+          <label class="form-label">WhatsApp Contact Number</label>
+          <div style="display: flex; gap: 0.5rem;">
+            <span style="display: inline-flex; align-items: center; padding-inline: 0.85rem; background: var(--color-bg-surface-elevated); border: 1px solid var(--color-border-medium); border-radius: var(--radius-sm); font-size: 0.9rem; color: var(--color-text-muted);">+92</span>
+            <input type="tel" class="form-input" placeholder="300 1234567">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Select Preferred Branch</label>
+          <select class="form-select">
+            <option>Lahore — Gulberg III (Main Boulevard)</option>
+            <option>Lahore — DHA Phase 5 (Plaza 42)</option>
+            <option>Karachi — Clifton Block 4</option>
+            <option>Karachi — DHA Phase 6 (Bukhari)</option>
+            <option>Islamabad — F-7/2 Markaz</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: PLAN CARD (Transparent PKR Pricing) -->
+    <section class="sg-section">
+      <h2 class="sg-section-title">06. Membership Plan Card (Transparent PKR)</h2>
+      <p class="sg-section-desc">Upfront, tax-inclusive pricing destroying competitor gatekeeping and hidden fee practices.</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+        
+        <div class="card-mizan mizan-lattice-border" style="position: relative;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+            <div>
+              <span class="badge-mizan badge-women" style="margin-bottom: 0.5rem;">Most Popular</span>
+              <h3 style="font-family: var(--font-latin-display); font-size: 1.6rem; margin: 0; color: var(--color-accent-primary);">
+                Sanctuary All-Access
+              </h3>
+            </div>
+            <div style="text-align: right;">
+              <span style="font-size: 0.75rem; color: var(--color-text-muted); display: block;">MONTHLY</span>
+              <span style="font-size: 1.75rem; font-weight: 700; color: var(--color-text-primary);">PKR 24,000</span>
+              <span style="font-size: 0.75rem; color: var(--color-text-muted); display: block;">Incl. All Taxes</span>
+            </div>
+          </div>
+
+          <p style="font-size: 0.9rem; color: var(--color-text-secondary); margin-bottom: 1.5rem;">
+            Unrestricted access to all floors including the private women's sanctuary, cold plunge, and infrared sauna.
+          </p>
+
+          <ul style="list-style: none; padding: 0; margin: 0 0 1.75rem; font-size: 0.88rem; color: var(--color-text-secondary); display: flex; flex-direction: column; gap: 0.6rem;">
+            <li style="display: flex; align-items: center; gap: 0.5rem;">
+              <span style="color: var(--color-accent-primary);">✓</span> Multi-Branch Passport (Lahore, Karachi, Islamabad)
+            </li>
+            <li style="display: flex; align-items: center; gap: 0.5rem;">
+              <span style="color: var(--color-accent-primary);">✓</span> Dedicated Women-Only Wing with Biometric Security
+            </li>
+            <li style="display: flex; align-items: center; gap: 0.5rem;">
+              <span style="color: var(--color-accent-primary);">✓</span> 2 Complimentary InBody 770 Scans per Month
+            </li>
+            <li style="display: flex; align-items: center; gap: 0.5rem;">
+              <span style="color: var(--color-accent-primary);">✓</span> Desi Macro Nutrition Coaching Sessions Included
+            </li>
+          </ul>
+
+          <a href="#" class="btn-mizan btn-primary" style="width: 100%;">
+            Start 1-Day Trial Pass
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 7: CLASS SCHEDULE ROW (Prayer Time Aware) -->
+    <section class="sg-section">
+      <h2 class="sg-section-title">07. Prayer-Aware Class Schedule Row</h2>
+      <p class="sg-section-desc">Class schedules seamlessly integrating Salah windows and female-only privacy badges.</p>
+      <div class="sg-component-box" style="padding: 1.25rem;">
+        <div style="display: flex; flex-direction: column; gap: 0.85rem;">
+          
+          <!-- Normal Class -->
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; padding: 1rem; background: var(--color-bg-surface-elevated); border-radius: var(--radius-md); gap: 1rem;">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <span style="font-weight: 700; font-size: 1.1rem; color: var(--color-accent-primary); width: 85px;">05:30 PM</span>
+              <div>
+                <div style="font-weight: 600; font-size: 1rem;">Reformer Pilates & Mobility</div>
+                <div style="font-size: 0.82rem; color: var(--color-text-muted);">Studio 2 • Lead Coach: Sarah K.</div>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <span class="badge-mizan badge-women">Women-Only Studio</span>
+              <button class="btn-mizan btn-ghost" style="padding: 0.4rem 1rem; min-height: 36px; font-size: 0.85rem;">Reserve</button>
+            </div>
+          </div>
+
+          <!-- Prayer Break Row (Signature Moment) -->
+          <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.85rem 1.25rem; background: rgba(197, 160, 89, 0.08); border: 1px dashed var(--color-accent-primary); border-radius: var(--radius-md);">
+            <div style="display: flex; align-items: center; gap: 0.85rem;">
+              <span style="font-size: 1.2rem;">🕌</span>
+              <div>
+                <strong style="color: var(--color-accent-primary); font-size: 0.95rem;">Maghrib Prayer & Hydration Interval (15 Mins)</strong>
+                <div style="font-size: 0.8rem; color: var(--color-text-muted);">Music paused. Dedicated prayer hall and clean wudu facilities open on 2nd floor.</div>
+              </div>
+            </div>
+            <span style="font-size: 0.82rem; color: var(--color-accent-primary); font-weight: 600;">06:15 PM – 06:30 PM</span>
+          </div>
+
+          <!-- Evening Class -->
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; padding: 1rem; background: var(--color-bg-surface-elevated); border-radius: var(--radius-md); gap: 1rem;">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <span style="font-weight: 700; font-size: 1.1rem; color: var(--color-accent-primary); width: 85px;">06:45 PM</span>
+              <div>
+                <div style="font-weight: 600; font-size: 1rem;">Athletic Conditioning & Barbell Strength</div>
+                <div style="font-size: 0.82rem; color: var(--color-text-muted);">Main Arena • Coach Hamza Shah</div>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <span class="badge-mizan badge-active">Co-Ed (Open)</span>
+              <button class="btn-mizan btn-ghost" style="padding: 0.4rem 1rem; min-height: 36px; font-size: 0.85rem;">Reserve</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: TRAINER CARD & BRANCH CARD -->
+    <section class="sg-section">
+      <h2 class="sg-section-title">08. Trainer Card & Branch Location Card</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+        
+        <!-- Trainer Card -->
+        <div class="card-mizan">
+          <div style="display: flex; gap: 1.25rem; align-items: center; margin-bottom: 1rem;">
+            <div style="width: 72px; height: 72px; border-radius: 50%; background: var(--color-bg-surface-elevated); border: 2px solid var(--color-accent-primary); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--color-accent-primary);">
+              🏋️‍♀️
+            </div>
+            <div>
+              <span class="badge-mizan badge-women" style="margin-bottom: 0.25rem;">Female Head Coach</span>
+              <h4 style="font-family: var(--font-latin-display); font-size: 1.3rem; margin: 0; color: var(--color-text-primary);">Ayesha Siddiqui</h4>
+              <p style="margin: 0; font-size: 0.85rem; color: var(--color-text-muted);">CSCS • Pre/Post Natal Specialist</p>
+            </div>
+          </div>
+          <p style="font-size: 0.88rem; color: var(--color-text-secondary); margin-bottom: 1.25rem;">
+            8+ years training elite female athletes and mothers across Lahore. Focuses on biomechanics, pelvic stability, and sustainable desi nutrition.
+          </p>
+          <a href="#" class="btn-mizan btn-secondary" style="width: 100%; font-size: 0.88rem;">
+            Book Consultation via WhatsApp
+          </a>
+        </div>
+
+        <!-- Branch Card -->
+        <div class="card-mizan">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
+            <span class="badge-mizan badge-active">Open Now • Uninterrupted Power</span>
+            <span style="font-size: 0.8rem; color: var(--color-accent-primary); font-weight: 600;">Lahore</span>
+          </div>
+          <h4 style="font-family: var(--font-latin-display); font-size: 1.35rem; margin: 0 0 0.5rem; color: var(--color-text-primary);">
+            Gulberg III Sanctuary Pavilion
+          </h4>
+          <p style="font-size: 0.88rem; color: var(--color-text-secondary); margin-bottom: 1rem;">
+            Main Boulevard Gulberg, Lahore (Opposite Mall 1). Over 22,000 sq.ft across 3 dedicated floors.
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.25rem;">
+            <span class="badge-mizan badge-women">Private Women's Floor</span>
+            <span class="badge-mizan badge-power">Cold Plunge & Sauna</span>
+            <span class="badge-mizan badge-active">Valet Parking</span>
+          </div>
+          <div style="display: flex; gap: 0.75rem;">
+            <a href="#" class="btn-mizan btn-primary" style="flex: 1; font-size: 0.85rem;">View Branch Tour</a>
+            <a href="https://wa.me/923000000000" class="btn-mizan btn-whatsapp" style="padding-inline: 1rem;">
+              💬
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 9: NAVIGATION & FOOTER COMPONENT -->
+    <section class="sg-section">
+      <h2 class="sg-section-title">09. Global Header & Footer Components</h2>
+      
+      <!-- Nav Preview -->
+      <div style="margin-bottom: 2rem;">
+        <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 0.5rem;">Global Navigation Bar (Sticky Glassmorphic)</p>
+        <div class="demo-nav">
+          <a href="#" class="demo-logo">
+            <span class="demo-logo-glyph">M</span>
+            <span>MIZAN</span>
+          </a>
+          <ul class="demo-nav-links">
+            <li><a href="#">Sanctuary Branches</a></li>
+            <li><a href="#">Women's Wing</a></li>
+            <li><a href="#">Class Timetable</a></li>
+            <li><a href="#">Transparent Pricing</a></li>
+            <li><a href="#">Desi Nutrition</a></li>
+          </ul>
+          <div style="display: flex; gap: 0.75rem; align-items: center;">
+            <span style="font-size: 0.85rem; font-weight: 600; color: var(--color-accent-primary);">اردو</span>
+            <a href="#" class="btn-mizan btn-primary" style="padding: 0.5rem 1.1rem; font-size: 0.85rem; min-height: 38px;">
+              Book Trial
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Preview -->
+      <div>
+        <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 0.5rem;">Global Footer (Bilingual, Transparent PKR, Tax ID)</p>
+        <div class="demo-footer">
+          <div>
+            <div class="demo-logo" style="margin-bottom: 0.75rem;">
+              <span class="demo-logo-glyph">M</span>
+              <span>MIZAN FITNESS</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: 1rem;">
+              Pakistan's sanctuary of physical dignity, holistic health, and athletic balance. Branches across Lahore, Karachi, and Islamabad.
+            </p>
+            <div style="font-size: 0.75rem; color: var(--color-text-muted);">
+              NTN Registered • Punjab Revenue Authority (PRA) Compliant
+            </div>
+          </div>
+          <div>
+            <h5 style="color: var(--color-accent-primary); font-size: 0.9rem; margin-top: 0; margin-bottom: 0.75rem;">Sanctuaries</h5>
+            <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem; line-height: 2; color: var(--color-text-secondary);">
+              <li>Lahore — Gulberg III</li>
+              <li>Lahore — DHA Phase 5</li>
+              <li>Karachi — Clifton Block 4</li>
+              <li>Karachi — DHA Phase 6</li>
+              <li>Islamabad — F-7 Markaz</li>
+            </ul>
+          </div>
+          <div>
+            <h5 style="color: var(--color-accent-primary); font-size: 0.9rem; margin-top: 0; margin-bottom: 0.75rem;">Member Safety</h5>
+            <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem; line-height: 2; color: var(--color-text-secondary);">
+              <li>Women's Wing Policy</li>
+              <li>CCTV Privacy Standards</li>
+              <li>Prayer Hall Schedules</li>
+              <li>Generator Continuity</li>
+              <li>FAQ & Student Pass</li>
+            </ul>
+          </div>
+          <div>
+            <h5 style="color: var(--color-accent-primary); font-size: 0.9rem; margin-top: 0; margin-bottom: 0.75rem;">Instant WhatsApp Desk</h5>
+            <p style="font-size: 0.82rem; color: var(--color-text-secondary); margin-bottom: 0.75rem;">
+              Speak directly with our concierge team. Real answers in under 5 minutes.
+            </p>
+            <a href="https://wa.me/923000000000" class="btn-mizan btn-whatsapp" style="width: 100%; font-size: 0.85rem; padding: 0.6rem 1rem;">
+              Chat on WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 10: TOAST & EMPTY STATES -->
+    <section class="sg-section">
+      <h2 class="sg-section-title">10. Toast Notification & Empty States</h2>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+        
+        <!-- Toast Notification -->
+        <div class="sg-component-box">
+          <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 0.75rem;">Confirmation Toast</p>
+          <div style="background: var(--color-bg-surface-elevated); border: 1px solid var(--color-accent-primary); border-radius: var(--radius-md); padding: 1rem 1.25rem; display: flex; align-items: center; justify-content: space-between; box-shadow: var(--shadow-gold);">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <span style="color: var(--color-whatsapp); font-size: 1.25rem;">✓</span>
+              <div>
+                <div style="font-weight: 600; font-size: 0.9rem; color: var(--color-text-primary);">Trial Pass Reserved</div>
+                <div style="font-size: 0.8rem; color: var(--color-text-muted);">Pass sent to +92 300 1234567 via WhatsApp</div>
+              </div>
+            </div>
+            <button style="background: none; border: none; color: var(--color-text-muted); cursor: pointer; font-size: 1.2rem;">×</button>
+          </div>
+        </div>
+
+        <!-- Empty State -->
+        <div class="sg-component-box" style="text-align: center;">
+          <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 0.75rem;">No Classes Filter State</p>
+          <div style="padding: 1.5rem 1rem;">
+            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🍃</div>
+            <h5 style="margin: 0 0 0.25rem; color: var(--color-text-primary); font-size: 1rem;">No Active Sessions During Prayer Interval</h5>
+            <p style="margin: 0 0 1rem; font-size: 0.82rem; color: var(--color-text-muted);">
+              All music and heavy sessions pause for 15 minutes. Explore evening sessions below.
+            </p>
+            <button class="btn-mizan btn-ghost" style="min-height: 36px; padding: 0.4rem 1rem; font-size: 0.82rem;">
+              Reset Filters
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme') || 'dark';
+      const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', nextTheme);
+      document.body.classList.toggle('light-theme', nextTheme === 'light');
+    }
+
+    function toggleDirection() {
+      const html = document.documentElement;
+      const currentDir = html.getAttribute('dir') || 'ltr';
+      const nextDir = currentDir === 'ltr' ? 'rtl' : 'ltr';
+      const nextLang = nextDir === 'rtl' ? 'ur' : 'en';
+      html.setAttribute('dir', nextDir);
+      html.setAttribute('lang', nextLang);
+      document.getElementById('dirToggle').textContent = nextDir === 'rtl' ? '🌐 Switch to English (LTR)' : '🌐 Switch to Urdu (RTL)';
+    }
+  </script>
+</body>
+</html>
